@@ -1,0 +1,7 @@
+demo/ export-ignore
+index.html export-ignore
+.gitignore export-ignore
+.editorconfig export-ignore
+rollup.js export-ignore
+yarn.lock export-ignore
+
