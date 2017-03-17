@@ -1,0 +1,87 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../paper-styles/color.html">
+<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../paper-styles/typography.html">
+
+<dom-module id="paper-table-style">
+    <template>
+        <style>
+            :host {
+                display: block;
+                position: relative;
+                border-spacing: 0;
+                font-size: 13px;
+            }
+
+            div[container] {
+                margin-left: var(--s-table-fixed-column-width, 192px);
+                /*border: 1px solid red;*/
+            }
+
+            table tbody tr td:nth-of-type(1),
+            table tfoot tr td:nth-of-type(1),
+            table thead tr th:nth-of-type(1) {
+                @apply --layout;
+                @apply --layout-center-center;
+                position: absolute;
+                left: 0;
+                width: var(--s-table-fixed-column-width, 192px);
+            }
+
+            div[container] {
+                overflow-x: auto;
+                padding-bottom: var(--s-table-scrollbar-height, 8px);
+            }
+
+            div[container]::-webkit-scrollbar {
+                height: var(--s-table-scrollbar-height, 8px);
+            }
+
+            div[container]::-webkit-scrollbar-track {
+                border-radius: var(--s-table-scrollbar-border-radius, 2px);
+            }
+
+            div[container]::-webkit-scrollbar-thumb {
+                border-radius: var(--s-table-scrollbar-border-radius, 2px);
+                background-color: var(--s-table-scrollbar-color, var(--divider-color));
+            }
+
+            table {
+                display: table;
+                width: 100%;
+            }
+
+            table tbody {
+                border-collapse: collapse;
+            }
+
+            table tbody td,
+            table tfoot td {
+                box-sizing: border-box;
+                height: var(--s-table-row-height, 48px);
+                padding: 0 var(--s-table-gutter, 24px);
+                white-space: nowrap;
+                border-bottom: 1px solid var(--s-table-divider-color, var(--divider-color));
+                @apply --layout-center-center;
+                @apply --paper-font-body1;
+            }
+
+            table thead tr th {
+                box-sizing: border-box;
+                height: var(--s-table-head-row-height, 56px);
+                padding: 0 var(--s-table-gutter, 24px);
+                white-space: nowrap;
+                color: var(--secondary-text-color);
+                border-bottom: 1px solid var(--s-table-divider-color, var(--divider-color));
+                @apply --paper-font-body2;
+            }
+
+
+            /*
+            table tbody tr:hover td {
+                background-color: var(--paper-grey-200);
+            }*/
+        </style>
+    </template>
+</dom-module>
