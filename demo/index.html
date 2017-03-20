@@ -22,8 +22,7 @@
         <template>
             <style include="paper-table-style">
             </style>
-            <div container>
-            <table fixed-column>
+            <table>
                 <thead>
                 <tr>
                     <th>First Name</th>
@@ -101,7 +100,6 @@
                 </tr>
                 </tbody>
             </table>
-          </div>
         </template>
         <script>
         class AppTable extends Polymer.Element {
@@ -119,7 +117,7 @@
         </script>
     </dom-module>
 
-    <app-table>
+    <app-table fixed-header>
 
     </app-table>
 
