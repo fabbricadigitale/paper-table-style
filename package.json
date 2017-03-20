@@ -1,12 +1,12 @@
 {
-  "name": "paper-table",
+  "name": "paper-table-style",
   "version": "0.1.0",
   "private": true,
-  "description": "paper-table",
-  "main": "paper-table.html",
+  "description": "paper-table-style",
+  "main": "paper-table-style.html",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.fabbricadigitale.it:a.labella/paper-table.git"
+    "url": "https://gitlab.fabbricadigitale.it:a.labella/paper-table-style.git"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -28,7 +28,7 @@
   "directories": {
     "example": "demo",
     "lib": "bundle",
-    "component": "paper-table",
+    "component": "paper-table-style",
     "deps": "node_modules/@browser"
   },
   "scripts": {
