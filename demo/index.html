@@ -21,6 +21,9 @@
     <dom-module id="app-table">
         <template>
             <style include="paper-table-style">
+                table {
+                    padding-top: 100px;
+                }
             </style>
             <table>
                 <thead>
@@ -37,7 +40,7 @@
                     <th>Arbitrary Data</th>
                 </tr>
                 </thead>
-                <tbody is="s-tbody" multi>
+                <tbody>
                 <tr>
                     <td>James</td>
                     <td>Matman</td>
@@ -108,8 +111,6 @@
             }
             static get properties() {
                 return {
-
-
                 }
             }
         }
