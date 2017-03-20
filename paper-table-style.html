@@ -8,9 +8,12 @@
     <template>
         <style>
             table {
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: space-between;
+                @apply --layout-vertical;
+                @apply --layout-justified;
+            }
+
+            :host-context([fixed-header]) table thead {
+                padding-right: var(--s-table-scrollbar-width, 8px);
             }
 
             :host-context([fixed-header]) table tbody {
@@ -32,18 +35,13 @@
             }
 
             tr {
-                display: flex;
-                flex-flow: row nowrap;
-                width: 100%;
+                @apply --layout-flex;
+                @apply --layout-horizontal;
             }
 
             th {
-                display: flex;
-                flex-flow: row ;
-                flex-grow: 1;
-                flex-basis: 0;
-                padding: 0.5em;
-
+                @apply --layout-flex;
+                @apply --layout-horizontal;
                 height: var(--s-table-row-height, 48px);
                 padding: 0 var(--s-table-gutter, 24px);
                 color: var(--secondary-text-color);
@@ -53,12 +51,8 @@
             }
 
             td {
-                display: flex;
-                flex-flow: row ;
-                flex-grow: 1;
-                flex-basis: 0;
-                padding: 0.5em;
-
+                @apply --layout-flex;
+                @apply --layout-horizontal;
                 height: var(--s-table-row-height, 48px);
                 padding: 0 var(--s-table-gutter, 24px);
                 border-bottom: 1px solid var(--s-table-divider-color, var(--divider-color));
