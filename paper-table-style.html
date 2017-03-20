@@ -3,35 +3,89 @@
 <link rel="import" href="../paper-styles/color.html">
 <link rel="import" href="../paper-styles/default-theme.html">
 <link rel="import" href="../paper-styles/typography.html">
+<!--
+This element is an helper style useful for creating responsive HTML table
 
+Examples:
+Import `paper-table-style.html` and include **paper-table-style** in the style of an element's definition.
+
+```html
+<dom-module id="app-table">
+    <template>
+        <style include="paper-table-style">
+        </style>
+    </template>
+    <table>
+        <thead>
+            <tr>
+                <th>Header1</th>
+                <th>Header2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Value11</td>
+                <td>Value12</td>
+            </tr>
+            <tr>
+                <td>Value21</td>
+                <td>Value22</td>
+            </tr>
+        </tbody>
+    </table>
+</dom-module>
+```
+
+### Styling
+Custom property                             | Description                                                | Default
+--------------------------------------------|------------------------------------------------------------|------------------
+`--paper-table-style-row-height`            | The row height.                                            | 48px
+`--paper-table-style-divider-color`         | The divider color.                                         | --divider-color
+`--paper-table-style-height`                | The height not scrollable of the table.                    | 150px
+`--paper-table-style-scrollbar-width`       | The width of the scrollbar.                                | 8px
+`--paper-table-style-scrollbar-color`       | The colour of the scrollbar.                               | --divider-color
+
+Mixin                                       | Description
+--------------------------------------------|--------------------------------------------------------------------------
+`--paper-table-style`                       | ...
+`--paper-table-style-th`                    | ...
+`--paper-table-style-td`                    | ...
+
+
+@pseudoElement paper-table-style
+@demo demo/index.html
+-->
 <dom-module id="paper-table-style">
     <template>
         <style>
+            :host {
+                @apply --paper-table-style;
+            }
             table {
                 @apply --layout-vertical;
                 @apply --layout-justified;
             }
 
             :host-context([fixed-header]) table thead {
-                padding-right: var(--s-table-scrollbar-width, 8px);
+                padding-right: var(--paper-table-style-scrollbar-width, 8px);
             }
 
             :host-context([fixed-header]) table tbody {
-                height: 150px;
+                height: var(--paper-table-style-height, 150px);
                 overflow-y: auto;
             }
 
             :host-context([fixed-header]) table tbody::-webkit-scrollbar {
-                width: var(--s-table-scrollbar-width, 8px);
+                width: var(--paper-table-style-scrollbar-width, 8px);
             }
 
             :host-context([fixed-header]) table tbody::-webkit-scrollbar-track {
-                border-radius: var(--s-table-scrollbar-border-radius, 2px);
+                border-radius: var(--paper-table-style-scrollbar-border-radius, 2px);
             }
 
             :host-context([fixed-header]) table tbody::-webkit-scrollbar-thumb {
-                border-radius: var(--s-table-scrollbar-border-radius, 2px);
-                background-color: var(--s-table-scrollbar-color, var(--divider-color));
+                border-radius: var(--paper-table-style-scrollbar-border-radius, 2px);
+                background-color: var(--paper-table-style-scrollbar-color, var(--divider-color));
             }
 
             tr {
@@ -42,22 +96,24 @@
             th {
                 @apply --layout-flex;
                 @apply --layout-horizontal;
-                height: var(--s-table-row-height, 48px);
-                padding: 0 var(--s-table-gutter, 24px);
+                height: var(--paper-table-style-row-height, 48px);
+                padding: 0 var(--paper-table-style-gutter, 24px);
                 color: var(--secondary-text-color);
-                border-bottom: 1px solid var(--s-table-divider-color, var(--divider-color));
+                border-bottom: 1px solid var(--paper-table-style-divider-color, var(--divider-color));
                 @apply --paper-font-body2;
                 @apply --layout-center-center;
+                @apply --paper-table-style-th;
             }
 
             td {
                 @apply --layout-flex;
                 @apply --layout-horizontal;
-                height: var(--s-table-row-height, 48px);
-                padding: 0 var(--s-table-gutter, 24px);
-                border-bottom: 1px solid var(--s-table-divider-color, var(--divider-color));
+                height: var(--paper-table-style-row-height, 48px);
+                padding: 0 var(--paper-table-style-gutter, 24px);
+                border-bottom: 1px solid var(--paper-table-style-divider-color, var(--divider-color));
                 @apply --paper-font-body1;
                 @apply --layout-center-center;
+                @apply --paper-table-style-td;
             }
         </style>
     </template>
