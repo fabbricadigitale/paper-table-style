@@ -62,28 +62,37 @@ Mixin                                       | Description
                 @apply --paper-table-style;
             }
             table {
+                @apply --layout-flex;
                 @apply --layout-vertical;
                 @apply --layout-justified;
             }
+            thead {
+                @apply --layout-flex;
+            }
 
-            :host-context([fixed-header]) table thead {
+            :host-context([fixed-header]) tbody {
+                height: var(--paper-table-style-height, 150px);
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+
+            :host-context([fixed-header]) tbody::-webkit-scrollbar {
                 padding-right: var(--paper-table-style-scrollbar-width, 8px);
             }
 
-            :host-context([fixed-header]) table tbody {
-                height: var(--paper-table-style-height, 150px);
-                overflow-y: auto;
+            :host-context([fixed-header]) thead {
+                padding-right: var(--paper-table-style-scrollbar-width, 8px);
             }
 
-            :host-context([fixed-header]) table tbody::-webkit-scrollbar {
+            :host-context([fixed-header]) tbody::-webkit-scrollbar {
                 width: var(--paper-table-style-scrollbar-width, 8px);
             }
 
-            :host-context([fixed-header]) table tbody::-webkit-scrollbar-track {
+            :host-context([fixed-header]) tbody::-webkit-scrollbar-track {
                 border-radius: var(--paper-table-style-scrollbar-border-radius, 2px);
             }
 
-            :host-context([fixed-header]) table tbody::-webkit-scrollbar-thumb {
+            :host-context([fixed-header]) tbody::-webkit-scrollbar-thumb {
                 border-radius: var(--paper-table-style-scrollbar-border-radius, 2px);
                 background-color: var(--paper-table-style-scrollbar-color, var(--divider-color));
             }
@@ -114,6 +123,11 @@ Mixin                                       | Description
                 @apply --paper-font-body1;
                 @apply --layout-center-center;
                 @apply --paper-table-style-td;
+            }
+
+            th, td {
+                @apply --paper-font-common-nowrap;
+                min-width: 20px;
             }
         </style>
     </template>
